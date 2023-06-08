@@ -3,6 +3,7 @@
 
 #include "xtp_trader_api.h"
 #include <string>
+#include <cstring>
 #include <map>
 #include <iostream>
 
@@ -106,7 +107,9 @@ int main()
 		for (int i = 0; i < instrument_count; i++) {
 			allInstruments[i] = new char[XTP_TICKER_LEN];
 			std::string instrument = fileUtils->stdStringForKey("quote_ticker.instrument[%d]", i);
-			strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
+			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+			//strncpy(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
 		}
 
 		//开始订阅,注意公网测试环境仅支持TCP方式，如果使用UDP方式会没有行情数据，实盘大多数使用UDP连接
@@ -212,7 +215,10 @@ int main()
 			int j = 0;
 			orderList[i].order_client_id = i;
 			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
-			strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
+			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+			
+			//strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
 			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
 			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
 			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
