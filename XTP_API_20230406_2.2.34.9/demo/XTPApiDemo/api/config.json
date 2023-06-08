@@ -1,7 +1,7 @@
 {
   "client_id": 1,
   "path": "./",
-  "path_linux": "./",
+  "path_linux": "./log/",
   "account_key":"xxxxxxxx",
   "account": [
     {
@@ -28,11 +28,11 @@
   "ping_pong_test": false,
   "quote_ip": "119.3.103.38",
   "quote_port": 6002,
-  "quote_user": "quoteusername",
-  "quote_password": "quotepw",
+  "quote_user": "15015202",
+  "quote_password": "H2uw5SN9",
   "quote_ticker": {
     "instrument": [
-      "600120"
+      "000977"
     ],
     "exchange": 1
   },
