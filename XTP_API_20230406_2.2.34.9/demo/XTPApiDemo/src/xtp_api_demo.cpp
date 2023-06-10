@@ -49,7 +49,7 @@ int main()
 
 	//读取交易配置
 	trade_server_ip = fileUtils->stdStringForKey("trade_ip");
-	trade_server_port = 6001
+	trade_server_port = 6001;
 	//fileUtils->intForKey("trade_port");
 	bool auto_save = fileUtils->boolForKey("auto_save");//是否将回报数据落盘，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 	int client_id = 1;
