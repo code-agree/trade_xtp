@@ -106,6 +106,7 @@ int main()
 	loginResult_quote = pQuoteApi->Login(quote_server_ip.c_str(), quote_server_port, quote_username.c_str(), quote_password.c_str(), quote_protocol); 
 	if (loginResult_quote == 0)
 	{
+		std::cout << "login success!" << std::endl;
 		//登录行情服务器成功后，订阅行情
 		//int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
 		std::vector<std::string> instrument_vector = {"000977", "000988"};
@@ -143,7 +144,7 @@ int main()
 	
 	}
 
-
+	std::cout << "login after" << std::endl;
 	if (account_count > 0)
 	{
 		//针对多用户的情况
