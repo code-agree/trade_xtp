@@ -52,7 +52,10 @@ int main()
 	trade_server_port = fileUtils->intForKey("trade_port");
 	bool auto_save = fileUtils->boolForKey("auto_save");//是否将回报数据落盘，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 	int client_id = 1;
-	int account_count = fileUtils->countForKey("account");
+	//int account_count = fileUtils->countForKey("account");
+	int account_count = 1;
+	 = {"user": "tradeusername",
+      "password": "tradepw"}
 	int resume_type = fileUtils->intForKey("resume_type");
 	std::string account_key = fileUtils->stdStringForKey("account_key");
 #ifdef _WIN32
@@ -190,13 +193,15 @@ int main()
 		session_arrary = new uint64_t[account_count];
 
 		//所有用户挨个登陆
+		// config 里只有一个用户
 		for (int i = 0; i < account_count; i++)
 		{
 			std::cout << "read config user=" << account_count << std::endl;
 			//从配置文件中读取第i个用户登录信息
-			std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
-			std::string account_pw = fileUtils->stdStringForKey("account[%d].password", i);
-			
+			//std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
+			std::string account_name = "tradeusername";
+			//std::string account_pw = fileUtils->stdStringForKey("account[%d].password", i);
+			std::string account_pw = "tradepw";
 			uint64_t temp_session_ = 0;
 			std::cout << account_name << " login begin." << std::endl;
 			temp_session_ = pUserApi->Login(trade_server_ip.c_str(), trade_server_port, account_name.c_str(), account_pw.c_str(), XTP_PROTOCOL_TCP); //第i个用户登录交易服务器
