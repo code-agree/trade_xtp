@@ -111,7 +111,7 @@ int main()
 		//int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
 		std::vector<std::string> instrument_vector = {"000977", "000988"};
 		int instrument_count = instrument_vector.size();
-		std::cout << "instrument_count.size()" << instrument_count << std::endl;
+		std::cout << "instrument_count.size()=" << instrument_count << std::endl;
 		//int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
 		int quote_exchange = 1;
 
@@ -121,9 +121,9 @@ int main()
 			std::cout << "instrument_count=" << i << std::endl;
 			allInstruments[i] = new char[XTP_TICKER_LEN];
 			std::string instrument = instrument_vector[i];
-			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
-			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
-			//strncpy(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
+			//strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+			//orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+			strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
 		}
 		std::cout << "subscribeMarketData begin!" << std::endl;
 		//开始订阅,注意公网测试环境仅支持TCP方式，如果使用UDP方式会没有行情数据，实盘大多数使用UDP连接
