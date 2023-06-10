@@ -65,7 +65,7 @@ int main()
 	//quote_server_ip = fileUtils->stdStringForKey("quote_ip");
 	quote_server_ip = "119.3.103.38";
 	//quote_server_port = fileUtils->intForKey("quote_port");
-	quote_server_port = "6002";
+	quote_server_port = 6002;
 	//quote_username = fileUtils->stdStringForKey("quote_user");
 	quote_username = "15015202";
 	//quote_password = fileUtils->stdStringForKey("quote_password");
