@@ -6,6 +6,7 @@
 #include <cstring>
 #include <map>
 #include <iostream>
+#include <vector>
 
 #ifdef _WIN32
 #include <windows.h>
