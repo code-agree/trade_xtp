@@ -234,9 +234,9 @@ int main()
 			int j = 0;
 			orderList[i].order_client_id = i;
 			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
-			// strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
-			// orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
-			strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
+			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+			//strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
 			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
 			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
 			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
