@@ -38,7 +38,7 @@ int main()
 	fileUtils = new FileUtils();
 	if (!fileUtils->init())
 	{
-		std::cout << "The config.json file parse error." << std::endl;
+		std::cout << "The config.json file parse error,and fileUtils->init=" << fileUtils->init() << std::endl;
 #ifdef _WIN32
 		system("pause");
 #endif

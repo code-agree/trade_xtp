@@ -50,6 +50,7 @@ bool FileUtils::readJson(const char *pszFileName, rapidjson::Document &doc)
 	unsigned char *pBytes = NULL;
 	do {
 		CC_BREAK_IF(pszFileName == NULL);
+		std::cout << "filename is null" << std::endl;
 		std::string jsonpath = pszFileName;//FileUtils::getInstance()->fullPathForFilename(pszFileName);
 		pBytes = getFileData(jsonpath.c_str(), "r", &size);
 		CC_BREAK_IF(pBytes == NULL || strcmp((char*)pBytes, "") == 0);
