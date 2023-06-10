@@ -50,14 +50,14 @@ int main()
 	trade_server_ip = fileUtils->stdStringForKey("trade_ip");
 	trade_server_port = fileUtils->intForKey("trade_port");
 	bool auto_save = fileUtils->boolForKey("auto_save");//是否将回报数据落盘，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
-	int client_id = fileUtils->intForKey("client_id");
+	int client_id = 1;
 	int account_count = fileUtils->countForKey("account");
 	int resume_type = fileUtils->intForKey("resume_type");
 	std::string account_key = fileUtils->stdStringForKey("account_key");
 #ifdef _WIN32
 	std::string filepath = fileUtils->stdStringForKey("path");
 #else
-	std::string filepath = fileUtils->stdStringForKey("path_linux");
+	std::string filepath = "./log/";
 #endif // _WIN32
 	bool ping_pong_test = fileUtils->boolForKey("ping_pong_test");//demo是否开启乒乓测试，默认是不开启的，如果需要开启，请在配置文件中修改，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 
