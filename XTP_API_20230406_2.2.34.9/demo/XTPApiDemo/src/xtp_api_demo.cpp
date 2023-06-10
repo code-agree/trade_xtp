@@ -151,12 +151,14 @@ int main()
 	std::cout << "login after" << std::endl;
 	if (account_count > 0)
 	{
+			
+		std::cout << "account_count>0" << std::endl;
 		//针对多用户的情况
 		orderList = new XTPOrderInsertInfo[account_count];
 		memset(orderList, 0, sizeof(XTPOrderInsertInfo)*account_count);
 	}
 	
-
+	std::cout << "CreateTraderApi!!!" << std::endl;
 	//初始化交易类Api
 	pUserApi = XTP::API::TraderApi::CreateTraderApi(client_id,filepath.c_str(), XTP_LOG_LEVEL_DEBUG);			// 创建UserApi，log日志级别可以调整
 	if (!pUserApi)
@@ -227,14 +229,14 @@ int main()
 		//每个用户均根据配置文件报单
 		for (int i = 0; i < account_count; i++)
 		{
+
 			//从配置文件中读取报单信息
 			int j = 0;
 			orderList[i].order_client_id = i;
 			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
-			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
-			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
-			
-			//strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
+			// strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+			// orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+			strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
 			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
 			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
 			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
