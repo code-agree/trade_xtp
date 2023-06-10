@@ -111,6 +111,7 @@ int main()
 		//int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
 		std::vector<std::string> instrument_vector = {"000977", "000988"};
 		int instrument_count = instrument_vector.size();
+		std::cout << "instrument_count.size()" << instrument_count << std::endl;
 		//int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
 		int quote_exchange = 1;
 
