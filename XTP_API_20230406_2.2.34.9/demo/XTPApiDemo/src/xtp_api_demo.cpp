@@ -49,7 +49,8 @@ int main()
 
 	//读取交易配置
 	trade_server_ip = fileUtils->stdStringForKey("trade_ip");
-	trade_server_port = fileUtils->intForKey("trade_port");
+	trade_server_port = 6001
+	//fileUtils->intForKey("trade_port");
 	bool auto_save = fileUtils->boolForKey("auto_save");//是否将回报数据落盘，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 	int client_id = 1;
 	//int account_count = fileUtils->countForKey("account");
@@ -160,75 +161,75 @@ int main()
 	}
 	
 	std::cout << "CreateTraderApi!!!" << std::endl;
-	//初始化交易类Api
-	pUserApi = XTP::API::TraderApi::CreateTraderApi(client_id,filepath.c_str(), XTP_LOG_LEVEL_DEBUG);			// 创建UserApi，log日志级别可以调整
-	if (!pUserApi)
-	{
-		std::cout << "Failed to create trader api, please check the input parameters." << std::endl;
-		return 0;
-	}
-	std::cout << "SubscribePublicTopic" << std::endl;
-	pUserApi->SubscribePublicTopic((XTP_TE_RESUME_TYPE)resume_type);
-	pUserApi->SetSoftwareVersion("1.1.0"); //设定此软件的开发版本号，用户自定义
-	pUserApi->SetSoftwareKey(account_key.c_str());//设定用户的开发代码，在XTP申请开户时，由xtp人员提供
-	pUserApi->SetHeartBeatInterval(heat_beat_interval);//设定交易服务器超时时间，单位为秒，此为1.1.16新增接口
-	MyTraderSpi* pUserSpi = new MyTraderSpi();
-	if (!pUserSpi)
-	{
-		std::cout << "Failed to create trader spi, please check the input parameters." << std::endl;
-		return 0;
-	}
-	pUserApi->RegisterSpi(pUserSpi);						// 注册事件类
-	pUserSpi->setUserAPI(pUserApi);
-	pUserSpi->set_save_to_file(auto_save);
-	pUserSpi->set_ping_pong_test_flag(ping_pong_test);//设置demo是否开启乒乓报单测试
+	// //初始化交易类Api
+	// pUserApi = XTP::API::TraderApi::CreateTraderApi(client_id,filepath.c_str(), XTP_LOG_LEVEL_DEBUG);			// 创建UserApi，log日志级别可以调整
+	// if (!pUserApi)
+	// {
+	// 	std::cout << "Failed to create trader api, please check the input parameters." << std::endl;
+	// 	return 0;
+	// }
+	// std::cout << "SubscribePublicTopic" << std::endl;
+	// pUserApi->SubscribePublicTopic((XTP_TE_RESUME_TYPE)resume_type);
+	// pUserApi->SetSoftwareVersion("1.1.0"); //设定此软件的开发版本号，用户自定义
+	// pUserApi->SetSoftwareKey(account_key.c_str());//设定用户的开发代码，在XTP申请开户时，由xtp人员提供
+	// pUserApi->SetHeartBeatInterval(heat_beat_interval);//设定交易服务器超时时间，单位为秒，此为1.1.16新增接口
+	// MyTraderSpi* pUserSpi = new MyTraderSpi();
+	// if (!pUserSpi)
+	// {
+	// 	std::cout << "Failed to create trader spi, please check the input parameters." << std::endl;
+	// 	return 0;
+	// }
+	// pUserApi->RegisterSpi(pUserSpi);						// 注册事件类
+	// pUserSpi->setUserAPI(pUserApi);
+	// pUserSpi->set_save_to_file(auto_save);
+	// pUserSpi->set_ping_pong_test_flag(ping_pong_test);//设置demo是否开启乒乓报单测试
 
-	uint64_t session_id_ = 0;//标识是否有用户登陆成功，存储第一个可用的session_id
-	std::cout << "account_count=" << account_count << std::endl;
-	if (account_count > 0)
-	{
-		//多用户时，用session数组来管理用户session_id
-		session_arrary = new uint64_t[account_count];
+	// uint64_t session_id_ = 0;//标识是否有用户登陆成功，存储第一个可用的session_id
+	// std::cout << "account_count=" << account_count << std::endl;
+	// if (account_count > 0)
+	// {
+	// 	//多用户时，用session数组来管理用户session_id
+	// 	session_arrary = new uint64_t[account_count];
 
-		//所有用户挨个登陆
-		// config 里只有一个用户
-		for (int i = 0; i < account_count; i++)
-		{
-			std::cout << "read config user=" << account_count << std::endl;
-			//从配置文件中读取第i个用户登录信息
-			//std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
-			std::string account_name = "tradeusername";
-			//std::string account_pw = fileUtils->stdStringForKey("account[%d].password", i);
-			std::string account_pw = "tradepw";
-			uint64_t temp_session_ = 0;
-			std::cout << account_name << " login begin." << std::endl;
-			temp_session_ = pUserApi->Login(trade_server_ip.c_str(), trade_server_port, account_name.c_str(), account_pw.c_str(), XTP_PROTOCOL_TCP); //第i个用户登录交易服务器
-			std::cout << account_name << " login success!!!" << std::endl;
-			if (session_id_ == 0)
-			{
-				session_id_ = temp_session_;
-			}
+	// 	//所有用户挨个登陆
+	// 	// config 里只有一个用户
+	// 	for (int i = 0; i < account_count; i++)
+	// 	{
+	// 		std::cout << "read config user=" << account_count << std::endl;
+	// 		//从配置文件中读取第i个用户登录信息
+	// 		//std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
+	// 		std::string account_name = "tradeusername";
+	// 		//std::string account_pw = fileUtils->stdStringForKey("account[%d].password", i);
+	// 		std::string account_pw = "tradepw";
+	// 		uint64_t temp_session_ = 0;
+	// 		std::cout << account_name << " login begin." << std::endl;
+	// 		temp_session_ = pUserApi->Login(trade_server_ip.c_str(), trade_server_port, account_name.c_str(), account_pw.c_str(), XTP_PROTOCOL_TCP); //第i个用户登录交易服务器
+	// 		std::cout << account_name << " login success!!!" << std::endl;
+	// 		if (session_id_ == 0)
+	// 		{
+	// 			session_id_ = temp_session_;
+	// 		}
+	// 		std::cout << "temp_session=" << temp_session_ << std::endl;
+	// 		if (temp_session_ > 0)
+	// 		{
+	// 			//登录成功后，建立session_id与用户之间的映射关系
+	// 			map_session.insert(std::make_pair(temp_session_, i));
+	// 		}
+	// 		else
+	// 		{
+	// 			//登录失败，获取登录失败原因
+	// 			XTPRI* error_info = pUserApi->GetApiLastError();
+	// 			std::cout << account_name << " login to server error, " << error_info->error_id << " : " << error_info->error_msg << std::endl;
+	// 		}
 
-			if (temp_session_ > 0)
-			{
-				//登录成功后，建立session_id与用户之间的映射关系
-				map_session.insert(std::make_pair(temp_session_, i));
-			}
-			else
-			{
-				//登录失败，获取登录失败原因
-				XTPRI* error_info = pUserApi->GetApiLastError();
-				std::cout << account_name << " login to server error, " << error_info->error_id << " : " << error_info->error_msg << std::endl;
-			}
-
-			session_arrary[i] = temp_session_;
-		}
-	}
-	std::cout << " i'm here and session_id=" << session_id_ << std::endl;
+	// 		session_arrary[i] = temp_session_;
+	// 	}
+	// }
+	// std::cout << " i'm here and session_id=" << session_id_ << std::endl;
 
 
-	if (session_id_ > 0)
-	{
+	// if (session_id_ > 0)
+	// {
 // 		//有用户成功登录交易服务器
 // 		std::cout << "Login to server success." << std::endl;
 
@@ -335,7 +336,7 @@ int main()
 #endif // _WIN32
 
 		}
-	}
+	//}
 
 	
 	delete fileUtils;
