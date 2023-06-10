@@ -78,7 +78,7 @@ int main()
 	//读取心跳超时配置
 	int32_t heat_beat_interval = fileUtils->intForKey("hb_interval");
 
-
+	std::cout << "inital CreatQuoteApi begin!" << std::endl;
 	//初始化行情api
 	XTP::API::QuoteApi* pQuoteApi = XTP::API::QuoteApi::CreateQuoteApi(client_id, filepath.c_str(), XTP_LOG_LEVEL_DEBUG);//log日志级别可以调整
 	if (!pQuoteApi)
@@ -92,6 +92,7 @@ int main()
 		std::cout << "Failed to create quote spi, please check the input parameters." << std::endl;
 		return 0;
 	}
+	std::cout << "RegisterSpi begin!" << std::endl;
 	pQuoteApi->RegisterSpi(pQuoteSpi);
 
 	//设定行情服务器超时时间，单位为秒
@@ -99,6 +100,7 @@ int main()
 	//设定行情本地缓存大小，单位为MB
 	pQuoteApi->SetUDPBufferSize(quote_buffer_size);//此为1.1.16新增接口
 
+	std::cout << "login begin!" << std::endl;
 	int loginResult_quote = -1;
 	//登录行情服务器,自1.1.16开始，行情服务器支持UDP连接，推荐使用UDP
 	loginResult_quote = pQuoteApi->Login(quote_server_ip.c_str(), quote_server_port, quote_username.c_str(), quote_password.c_str(), quote_protocol); 
