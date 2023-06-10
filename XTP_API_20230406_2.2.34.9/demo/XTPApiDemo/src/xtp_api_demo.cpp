@@ -54,8 +54,6 @@ int main()
 	int client_id = 1;
 	//int account_count = fileUtils->countForKey("account");
 	int account_count = 1;
-	 = {"user": "tradeusername",
-      "password": "tradepw"}
 	int resume_type = fileUtils->intForKey("resume_type");
 	std::string account_key = fileUtils->stdStringForKey("account_key");
 #ifdef _WIN32
