@@ -225,103 +225,103 @@ int main()
 		}
 	}
 
-	if (session_id_ > 0)
-	{
-		//有用户成功登录交易服务器
-		std::cout << "Login to server success." << std::endl;
+// 	if (session_id_ > 0)
+// 	{
+// 		//有用户成功登录交易服务器
+// 		std::cout << "Login to server success." << std::endl;
 
-		is_connected_ = true;
+// 		is_connected_ = true;
 
-		//每个用户均根据配置文件报单
-		for (int i = 0; i < account_count; i++)
-		{
+// 		//每个用户均根据配置文件报单
+// 		for (int i = 0; i < account_count; i++)
+// 		{
 
-			//从配置文件中读取报单信息
-			int j = 0;
-			orderList[i].order_client_id = i;
-			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
-			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
-			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
-			//strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
-			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
-			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
-			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
-			orderList[i].side = (XTP_SIDE_TYPE)fileUtils->intForKey("order[%d].side", j);
-			orderList[i].price_type = (XTP_PRICE_TYPE)fileUtils->intForKey("order[%d].price_type", j);
-			orderList[i].business_type = (XTP_BUSINESS_TYPE)fileUtils->intForKey("order[%d].business_type", j); //此为1.1.16新增字段，普通业务使用0，其他业务请参考注释
-			orderList[i].position_effect = (XTP_POSITION_EFFECT_TYPE)fileUtils->intForKey("order[%d].position_effect", j);//此为1.1.18新增字段,供期权、信用业务使用，普通业务均使用0
+// 			//从配置文件中读取报单信息
+// 			int j = 0;
+// 			orderList[i].order_client_id = i;
+// 			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
+// 			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
+// 			orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
+// 			//strcpy_s(orderList[i].ticker, XTP_TICKER_LEN, instrument.c_str());
+// 			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
+// 			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
+// 			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
+// 			orderList[i].side = (XTP_SIDE_TYPE)fileUtils->intForKey("order[%d].side", j);
+// 			orderList[i].price_type = (XTP_PRICE_TYPE)fileUtils->intForKey("order[%d].price_type", j);
+// 			orderList[i].business_type = (XTP_BUSINESS_TYPE)fileUtils->intForKey("order[%d].business_type", j); //此为1.1.16新增字段，普通业务使用0，其他业务请参考注释
+// 			orderList[i].position_effect = (XTP_POSITION_EFFECT_TYPE)fileUtils->intForKey("order[%d].position_effect", j);//此为1.1.18新增字段,供期权、信用业务使用，普通业务均使用0
 
-			if (session_arrary[i] == 0)
-			{
-				//用户登录不成功时，跳过
-				continue;
-			}
+// 			if (session_arrary[i] == 0)
+// 			{
+// 				//用户登录不成功时，跳过
+// 				continue;
+// 			}
 
-			//发送报单
-			int64_t xtp_id = pUserApi->InsertOrder(&(orderList[i]), session_arrary[i]);
-			if (xtp_id == 0)
-			{
-				//报单不成功时，等待一会儿，跳过
-#ifdef _WIN32
-				Sleep(1000);
-#else
-				sleep(1);
-#endif // WIN32
-				continue;
-			}
+// 			//发送报单
+// 			int64_t xtp_id = pUserApi->InsertOrder(&(orderList[i]), session_arrary[i]);
+// 			if (xtp_id == 0)
+// 			{
+// 				//报单不成功时，等待一会儿，跳过
+// #ifdef _WIN32
+// 				Sleep(1000);
+// #else
+// 				sleep(1);
+// #endif // WIN32
+// 				continue;
+// 			}
 
-			//报单发送成功输出日志
-			std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
-			std::cout << account_name <<" insert order success." << std::endl;
-		}
+// 			//报单发送成功输出日志
+// 			std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
+// 			std::cout << account_name <<" insert order success." << std::endl;
+// 		}
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		///------------------------------------如果用户想要下算法母单，可以参考以下代码，否则可以注释掉--------------------------------------------------------------///
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		std::string server_ip_algo = fileUtils->stdStringForKey("ip_algo");
-		int server_port_algo = fileUtils->intForKey("port_algo");
-		std::string account_pw_algo = fileUtils->stdStringForKey("password_algo");
-		std::string account_name_algo = fileUtils->stdStringForKey("account_algo");
-		int login_ret = 0;
-		/// 登录AlgoBus算法服务器
-		std::cout << account_name_algo << " begin to login AlgoBus." << std::endl;
-		login_ret = pUserApi->LoginALGO(server_ip_algo.c_str(), server_port_algo, account_name_algo.c_str(), account_pw_algo.c_str(), XTP_PROTOCOL_TCP);
-		if (login_ret != 0)
-		{
-			std::cout << account_name_algo << " login to AlgoBus error!!!!!!!!!!!" << std::endl;
+		// std::string server_ip_algo = fileUtils->stdStringForKey("ip_algo");
+		// int server_port_algo = fileUtils->intForKey("port_algo");
+		// std::string account_pw_algo = fileUtils->stdStringForKey("password_algo");
+		// std::string account_name_algo = fileUtils->stdStringForKey("account_algo");
+		// int login_ret = 0;
+		// /// 登录AlgoBus算法服务器
+		// std::cout << account_name_algo << " begin to login AlgoBus." << std::endl;
+		// login_ret = pUserApi->LoginALGO(server_ip_algo.c_str(), server_port_algo, account_name_algo.c_str(), account_pw_algo.c_str(), XTP_PROTOCOL_TCP);
+		// if (login_ret != 0)
+		// {
+		// 	std::cout << account_name_algo << " login to AlgoBus error!!!!!!!!!!!" << std::endl;
 	
-		}
-		else
-		{
-			std::cout << account_name_algo << " login to AlgoBus success." << std::endl;
+		// }
+		// else
+		// {
+		// 	std::cout << account_name_algo << " login to AlgoBus success." << std::endl;
 	
-			///在用户成功登录交易服务器后，算法用户建立算法通道
-			//假设每个登陆成功的用户均需要下算法母单，挨个建立算法通道
-			for (int i = 0; i < account_count; i++)
-			{
-				if (session_arrary[i] == 0)
-				{
-					//用户登录不成功时，跳过
-					continue;
-				}
+		// 	///在用户成功登录交易服务器后，算法用户建立算法通道
+		// 	//假设每个登陆成功的用户均需要下算法母单，挨个建立算法通道
+		// 	for (int i = 0; i < account_count; i++)
+		// 	{
+		// 		if (session_arrary[i] == 0)
+		// 		{
+		// 			//用户登录不成功时，跳过
+		// 			continue;
+		// 		}
 
-				//从配置文件中读取第i个用户登录信息
-				std::string account_name_oms = fileUtils->stdStringForKey("account[%d].user", i);
-				std::string account_pw_oms = fileUtils->stdStringForKey("account[%d].password", i);
+		// 		//从配置文件中读取第i个用户登录信息
+		// 		std::string account_name_oms = fileUtils->stdStringForKey("account[%d].user", i);
+		// 		std::string account_pw_oms = fileUtils->stdStringForKey("account[%d].password", i);
 
-				std::cout << account_name_oms << " begin to establish channel." << std::endl;
-				int user_ret = pUserApi->ALGOUserEstablishChannel(trade_server_ip.c_str(), trade_server_port, account_name_oms.c_str(), account_pw_oms.c_str(), session_arrary[i]);
-				if (user_ret != 0)
-				{
-					std::cout << account_name_oms << " establish channel send error!!!!!!!!!!!" << std::endl;
-				}
-				else
-				{
-					std::cout << account_name_oms << " establish channel send success." << std::endl;
-				}
-			}
+		// 		std::cout << account_name_oms << " begin to establish channel." << std::endl;
+		// 		int user_ret = pUserApi->ALGOUserEstablishChannel(trade_server_ip.c_str(), trade_server_port, account_name_oms.c_str(), account_pw_oms.c_str(), session_arrary[i]);
+		// 		if (user_ret != 0)
+		// 		{
+		// 			std::cout << account_name_oms << " establish channel send error!!!!!!!!!!!" << std::endl;
+		// 		}
+		// 		else
+		// 		{
+		// 			std::cout << account_name_oms << " establish channel send success." << std::endl;
+		// 		}
+		// 	}
 	
-		}
+		// }
 
 		//主线程循环，防止进程退出
 		while (true)
