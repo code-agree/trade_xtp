@@ -166,6 +166,7 @@ int main()
 		std::cout << "Failed to create trader api, please check the input parameters." << std::endl;
 		return 0;
 	}
+	std::cout << "SubscribePublicTopic" << std::endl;
 	pUserApi->SubscribePublicTopic((XTP_TE_RESUME_TYPE)resume_type);
 	pUserApi->SetSoftwareVersion("1.1.0"); //设定此软件的开发版本号，用户自定义
 	pUserApi->SetSoftwareKey(account_key.c_str());//设定用户的开发代码，在XTP申请开户时，由xtp人员提供
@@ -182,6 +183,7 @@ int main()
 	pUserSpi->set_ping_pong_test_flag(ping_pong_test);//设置demo是否开启乒乓报单测试
 
 	uint64_t session_id_ = 0;//标识是否有用户登陆成功，存储第一个可用的session_id
+	std::cout << "account_count=" << account_count << std::endl;
 	if (account_count > 0)
 	{
 		//多用户时，用session数组来管理用户session_id
@@ -190,6 +192,7 @@ int main()
 		//所有用户挨个登陆
 		for (int i = 0; i < account_count; i++)
 		{
+			std::cout << "read config user=" << account_count << std::endl;
 			//从配置文件中读取第i个用户登录信息
 			std::string account_name = fileUtils->stdStringForKey("account[%d].user", i);
 			std::string account_pw = fileUtils->stdStringForKey("account[%d].password", i);
