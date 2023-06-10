@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <iostream>
 
-#define CC_BREAK_IF(cond)           if(cond) break
+//#define CC_BREAK_IF(cond)           if(cond) break
+#define CC_BREAK_IF(cond) if(cond) { std::cerr << "break at line " << __LINE__ << " in function " << __FUNCTION__ << ", cond=" << cond << std::endl; break; }
 #define CC_SAFE_DELETE_ARRAY(p)     do { if(p) { delete[] (p); (p) = NULL; } } while(0)
 
 FileUtils::FileUtils()
