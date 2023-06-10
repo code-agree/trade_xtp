@@ -117,6 +117,7 @@ int main()
 		//从配置文件中读取需要订阅的股票
 		char* *allInstruments = new char*[instrument_count];
 		for (int i = 0; i < instrument_count; i++) {
+			std::cout << "instrument_count=" << i << std::endl;
 			allInstruments[i] = new char[XTP_TICKER_LEN];
 			std::string instrument = instrument_vector[i];
 			strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
