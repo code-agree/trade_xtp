@@ -36,15 +36,15 @@ int main()
 {
 
 	fileUtils = new FileUtils();
-	if (!fileUtils->init())
-	{
-		std::cout << "The config.json file parse error,and fileUtils->init=" << fileUtils->init() << std::endl;
-#ifdef _WIN32
-		system("pause");
-#endif
+// 	if (!fileUtils->init())
+// 	{
+// 		std::cout << "The config.json file parse error,and fileUtils->init=" << fileUtils->init() << std::endl;
+// #ifdef _WIN32
+// 		system("pause");
+// #endif
 
-		return 0;
-	}
+// 		return 0;
+// 	}
 
 	//读取交易配置
 	trade_server_ip = fileUtils->stdStringForKey("trade_ip");
@@ -62,11 +62,16 @@ int main()
 	bool ping_pong_test = fileUtils->boolForKey("ping_pong_test");//demo是否开启乒乓测试，默认是不开启的，如果需要开启，请在配置文件中修改，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 
 	//读取行情配置
-	quote_server_ip = fileUtils->stdStringForKey("quote_ip");
-	quote_server_port = fileUtils->intForKey("quote_port");
-	quote_username = fileUtils->stdStringForKey("quote_user");
-	quote_password = fileUtils->stdStringForKey("quote_password");
-	quote_protocol = (XTP_PROTOCOL_TYPE)(fileUtils->intForKey("quote_protocol"));
+	//quote_server_ip = fileUtils->stdStringForKey("quote_ip");
+	quote_server_ip = "119.3.103.38";
+	//quote_server_port = fileUtils->intForKey("quote_port");
+	quote_server_port = "6002";
+	//quote_username = fileUtils->stdStringForKey("quote_user");
+	quote_username = "15015202";
+	//quote_password = fileUtils->stdStringForKey("quote_password");
+	quote_password = "H2uw5SN9";
+	//quote_protocol = (XTP_PROTOCOL_TYPE)(fileUtils->intForKey("quote_protocol"));
+	quote_protocol = XTP_PROTOCOL_TCP;
 	int32_t quote_buffer_size = fileUtils->intForKey("quote_buffer_size");
 
 	//读取心跳超时配置
@@ -99,8 +104,10 @@ int main()
 	if (loginResult_quote == 0)
 	{
 		//登录行情服务器成功后，订阅行情
-		int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
-		int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
+		//int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
+		int instrument_count = 977;
+		//int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
+		int quote_exchange = 1;
 
 		//从配置文件中读取需要订阅的股票
 		char* *allInstruments = new char*[instrument_count];
