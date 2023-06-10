@@ -59,9 +59,10 @@ bool FileUtils::readJson(const char *pszFileName, rapidjson::Document &doc)
 		CC_SAFE_DELETE_ARRAY(pBytes);
 		doc.Parse<0>(load_str.c_str());
 		CC_BREAK_IF(doc.HasParseError());
+		std::cout << "json parse error and break" << std::endl;
 		bRet = true;
 	} while (0);
-
+	std::cout << "bRet=" << bRet << std::endl;
 	return bRet;
 }
 
