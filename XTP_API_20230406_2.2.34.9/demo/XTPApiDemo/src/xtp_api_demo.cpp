@@ -224,9 +224,11 @@ int main()
 			session_arrary[i] = temp_session_;
 		}
 	}
+	std::cout << " i'm here and session_id=" << session_id_ << std::endl;
 
-// 	if (session_id_ > 0)
-// 	{
+
+	if (session_id_ > 0)
+	{
 // 		//有用户成功登录交易服务器
 // 		std::cout << "Login to server success." << std::endl;
 
