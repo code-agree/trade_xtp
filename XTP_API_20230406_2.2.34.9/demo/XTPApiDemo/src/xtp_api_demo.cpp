@@ -57,7 +57,7 @@ int main()
 #ifdef _WIN32
 	std::string filepath = fileUtils->stdStringForKey("path");
 #else
-	std::string filepath = "./log/";
+	std::string filepath = "./";
 #endif // _WIN32
 	bool ping_pong_test = fileUtils->boolForKey("ping_pong_test");//demo是否开启乒乓测试，默认是不开启的，如果需要开启，请在配置文件中修改，此参数仅在此demo中使用，仅涉及demo回调函数中逻辑，不是必需的
 
