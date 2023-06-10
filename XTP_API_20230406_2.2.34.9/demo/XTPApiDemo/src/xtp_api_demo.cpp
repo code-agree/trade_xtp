@@ -203,7 +203,7 @@ int main()
 			uint64_t temp_session_ = 0;
 			std::cout << account_name << " login begin." << std::endl;
 			temp_session_ = pUserApi->Login(trade_server_ip.c_str(), trade_server_port, account_name.c_str(), account_pw.c_str(), XTP_PROTOCOL_TCP); //第i个用户登录交易服务器
-
+			std::cout << account_name << " login success!!!" << std::endl;
 			if (session_id_ == 0)
 			{
 				session_id_ = temp_session_;
