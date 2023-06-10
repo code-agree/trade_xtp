@@ -123,7 +123,9 @@ int main()
 			std::string instrument = instrument_vector[i];
 			//strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
 			//orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
-			strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
+			strncpy(allInstruments[i], instrument.c_str(), XTP_TICKER_LEN - 1);
+			allInstruments[i][XTP_TICKER_LEN - 1] = '\0';
+			//strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
 		}
 		std::cout << "subscribeMarketData begin!" << std::endl;
 		//开始订阅,注意公网测试环境仅支持TCP方式，如果使用UDP方式会没有行情数据，实盘大多数使用UDP连接
