@@ -123,8 +123,6 @@ int main()
 			std::cout << "instrument_count=" << i << std::endl;
 			allInstruments[i] = new char[XTP_TICKER_LEN];
 			std::string instrument = instrument_vector[i];
-			//strncpy(orderList[i].ticker, instrument.c_str(), XTP_TICKER_LEN - 1);
-			//orderList[i].ticker[XTP_TICKER_LEN - 1] = '\0';
 			strncpy(allInstruments[i], instrument.c_str(), XTP_TICKER_LEN - 1);
 			allInstruments[i][XTP_TICKER_LEN - 1] = '\0';
 			//strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
