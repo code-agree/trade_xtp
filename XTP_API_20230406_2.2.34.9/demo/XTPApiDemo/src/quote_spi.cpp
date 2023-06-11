@@ -27,11 +27,23 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 		if (is_last){
 			cout << "OnRspSubMarketData is_last-----" << is_last << endl;
 		}
-		cout << "OnRspSubMarketData is_last-----" << ticker << endl;
-		long long decimal_num = stoll(ticker, nullptr, 16);
-		cout << "OnRspSubMarketData -----decimal=" << decimal_num << endl;
+		cout << "OnRspSubMarketData is_last-----" << ticker->exchange_id << endl;
+		//long long decimal_num = stoll(ticker, nullptr, 16);
+		//cout << "OnRspSubMarketData -----decimal=" << decimal_num << endl;
 		cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
+		
+		
 		cout << "OnRspSubMarketData -----data_time" << ticker->data_time << endl;
+    	int64_t time_int64 = ticker->data_time;
+		time_t t = time_int64 / 1000;
+		struct tm* timeinfo = localtime(&t);
+		if (timeinfo == nullptr){
+			cout << "获取时间戳失败！" << endl;
+		}
+		char buffer[80];
+		strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
+    	cout << "时间戳 " << time_int64 << " 对应的北京时间为：" << buffer << endl;	
+
 	}
 	else{
 		cout << "订阅失败，错误码：" << error_info->error_id << "\n";
