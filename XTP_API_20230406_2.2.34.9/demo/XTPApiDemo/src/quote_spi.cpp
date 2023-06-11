@@ -1,6 +1,7 @@
 #include "quote_spi.h"
 #include <iostream>
 #include <stdio.h>
+#include <string>
 using namespace std;
 
 MyQuoteSpi::MyQuoteSpi()
@@ -27,6 +28,8 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 			cout << "OnRspSubMarketData is_last-----" << is_last << endl;
 		}
 		cout << "OnRspSubMarketData is_last-----" << ticker << endl;
+		long long decimal_num = stoll(ticker, nullptr, 16);
+		cout << "OnRspSubMarketData -----decimal=" << decimal_num << endl;
 		cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
 		cout << "OnRspSubMarketData -----data_time" << ticker->data_time << endl;
 	}
