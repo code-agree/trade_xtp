@@ -38,6 +38,7 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
 
 	// 输出 last_price 中的每个元素
+	cout << "OnRspSubMarketData -----last_price: " << endl;
 	cout << "OnRspSubMarketData -----last_price: ";
 	for (auto& price : ticker->last_price) {
 		cout << price << " ";
