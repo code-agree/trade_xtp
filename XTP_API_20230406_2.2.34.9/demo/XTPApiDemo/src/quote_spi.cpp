@@ -31,19 +31,7 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 		//long long decimal_num = stoll(ticker, nullptr, 16);
 		//cout << "OnRspSubMarketData -----decimal=" << decimal_num << endl;
 		cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
-		
-		
 		cout << "OnRspSubMarketData -----data_time" << ticker->data_time << endl;
-    	uint64_t time_int64 = ticker->data_time;
-		time_t t = time_int64 / 1000;
-		struct tm* timeinfo = localtime(&t);
-		if (timeinfo == nullptr){
-			cout << "get timestamp failed!" << endl;
-		}
-		char buffer[80];
-		strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
-    	cout << "timestamp " << time_int64 << " beijing time:" << buffer << endl;	
-
 	}
 	else{
 		cout << "¶©ÔÄÊ§°Ü£¬´íÎóÂë£º" << error_info->error_id << "\n";
