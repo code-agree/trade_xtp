@@ -127,7 +127,7 @@ int main()
 			allInstruments[i][XTP_TICKER_LEN - 1] = '\0';
 			//strcpy_s(allInstruments[i], XTP_TICKER_LEN, instrument.c_str());
 		}
-		std::cout << "subscribeMarketData begin!" << "quote_exchang=" << quote_exchange << "allinstrument=" << allInstruments[0] << std::endl;
+		std::cout << "subscribeMarketData begin!" << "quote_exchang=" << quote_exchange << ", allinstrument=" << allInstruments[0] << std::endl;
 		//开始订阅,注意公网测试环境仅支持TCP方式，如果使用UDP方式会没有行情数据，实盘大多数使用UDP连接
 		pQuoteApi->SubscribeMarketData(allInstruments, instrument_count, (XTP_EXCHANGE_TYPE)quote_exchange);
 		std::cout << "subscribeMarketData success!" << std::endl;
