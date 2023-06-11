@@ -8,6 +8,7 @@
 
 #include <stdint.h>
 #include "xtp_api_data_type.h"
+#include <vector>
 
 #pragma pack(8)
 
@@ -18,7 +19,7 @@ typedef struct XTPSpecificTickerStruct
     XTP_EXCHANGE_TYPE exchange_id;
     ///合约代码（不包含交易所信息）例如"600000"，不带空格，以'\0'结尾
 	char	ticker[XTP_TICKER_LEN];
-    std::vector<int> last_price;
+    std::vector<double> last_price;
     std::vector<int64_t> data_time;
 } XTPST;
 
