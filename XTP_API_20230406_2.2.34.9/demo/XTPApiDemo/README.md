@@ -3,3 +3,5 @@ xtp api的demo测试程序
 ## **请参考《使用cmake生成demo工程文件.pdf》说明文档建立工程**  
 运行时，请将运行目录设置为api文件夹  
 ## **运行前，请参考《Demo测试账号配置.pdf》说明文档修改配置参数。**  
+
+## 可执行文件在XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/bin/XTPApiDemo
