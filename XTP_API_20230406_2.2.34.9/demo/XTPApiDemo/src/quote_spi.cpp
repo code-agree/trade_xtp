@@ -30,54 +30,11 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 		cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
 		return;
 	}
-	
 	// 订阅成功
 	if (is_last){
 		cout << "OnRspSubMarketData is_last=" << is_last << endl;
 	}
-	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
-
-	// 输出 last_price 中的每个元素
-	cout << "OnRspSubMarketData -----last_price: " << endl;
-	cout << "OnRspSubMarketData -----last_price: " << ticker->last_price << endl;
-	cout << "OnRspSubMarketData -----last_price: " << endl;
-	// for (auto price : ticker->last_price) {
-	// 	cout << price << " ";
-	// }
-	// cout << endl;
-
-	// 输出 data_time 中的每个元素
-	// cout << "OnRspSubMarketData -----data_time: ";
-	// for (auto& time : ticker->data_time) {
-	// 	cout << time << " ";
-	// }
-	// cout << endl;
-    //cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
-
-	// if (error_info && error_info->error_id == 0){
-	// 	订阅成功
-	// 	if (is_last){
-	// 		cout << "OnRspSubMarketData is_last=" << is_last << endl;
-	// 	}
-	//cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
-	//cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price[0] << endl;
-	//cout << "OnRspSubMarketData -----data_time=" << ticker->data_time[0] << endl;
-	// }
-	// else{
-	// 	cout << "订阅失败，错误码：" << error_info->error_id << "\n";
-	// }
 }
-
-
-	// cout << "OnRspSubMarketData -----" << endl;
-	// cout << "OnRspSubMarketData -----" << ticker << endl;
-	// cout << "OnRspSubMarketData -----" << ticker->last_price << endl;
-	// cout << "OnRspSubMarketData errinfo-----" << error_info << endl;
-	// cout << "OnRspSubMarketData is_last-----" << is_last << endl;
-	// if (is_last){
-	// 	cout << "OnRspSubMarketData is_last=1-----" << is_last << endl;
-	// }
-
 
 void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
