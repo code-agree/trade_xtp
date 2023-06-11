@@ -21,15 +21,30 @@ void MyQuoteSpi::OnDisconnected(int reason)
 
 void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
- 	cout << "OnRspSubMarketData -----" << endl;
-	cout << "OnRspSubMarketData -----" << ticker << endl;
-	cout << "OnRspSubMarketData -----" << ticker->last_price << endl;
-	cout << "OnRspSubMarketData errinfo-----" << error_info << endl;
-	cout << "OnRspSubMarketData is_last-----" << is_last << endl;
-	if (is_last){
-		cout << "OnRspSubMarketData is_last=1-----" << is_last << endl;
+	if (error_info || error_info->error_id){
+		// ¶©ÔÄ³É¹¦
+		if (is_last){
+			cout << "OnRspSubMarketData is_last-----" << is_last << endl;
+		}
+		cout << "OnRspSubMarketData is_last-----" << ticker << endl;
+		cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
+		cout << "OnRspSubMarketData -----data_time" << ticker->data_time << endl;
+	}
+	else{
+		cout << "¶©ÔÄÊ§°Ü£¬´íÎóÂë£º" << error_info->error_id << "\n";
 	}
 }
+
+
+	// cout << "OnRspSubMarketData -----" << endl;
+	// cout << "OnRspSubMarketData -----" << ticker << endl;
+	// cout << "OnRspSubMarketData -----" << ticker->last_price << endl;
+	// cout << "OnRspSubMarketData errinfo-----" << error_info << endl;
+	// cout << "OnRspSubMarketData is_last-----" << is_last << endl;
+	// if (is_last){
+	// 	cout << "OnRspSubMarketData is_last=1-----" << is_last << endl;
+	// }
+
 
 void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {

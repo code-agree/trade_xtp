@@ -18,7 +18,8 @@ typedef struct XTPSpecificTickerStruct
     XTP_EXCHANGE_TYPE exchange_id;
     ///合约代码（不包含交易所信息）例如"600000"，不带空格，以'\0'结尾
 	char	ticker[XTP_TICKER_LEN];
-    double last_price; 
+    double last_price;
+    int64_t data_time;
 } XTPST;
 
 ///股票、基金 等额外数据
