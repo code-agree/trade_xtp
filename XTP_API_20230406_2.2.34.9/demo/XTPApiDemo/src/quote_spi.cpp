@@ -24,40 +24,40 @@ void MyQuoteSpi::OnDisconnected(int reason)
 void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
 
-	// if (error_info && error_info->error_id != 0)
-	// {
-	// 	//订阅失败
-	// 	cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
-	// 	return;
-	// }
+	if (error_info && error_info->error_id != 0)
+	{
+		//订阅失败
+		cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
+		return;
+	}
 	
-	// // 订阅成功
-	// if (is_last){
-	// 	cout << "OnRspSubMarketData is_last=" << is_last << endl;
-	// }
-	// cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
+	// 订阅成功
+	if (is_last){
+		cout << "OnRspSubMarketData is_last=" << is_last << endl;
+	}
+	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
 
-	// // 输出 last_price 中的每个元素
-	// cout << "OnRspSubMarketData -----last_price: ";
-	// for (auto& price : ticker->last_price) {
-	// 	cout << price << " ";
-	// }
-	// cout << endl;
+	// 输出 last_price 中的每个元素
+	cout << "OnRspSubMarketData -----last_price: ";
+	for (auto& price : ticker->last_price) {
+		cout << price << " ";
+	}
+	cout << endl;
 
-	// // 输出 data_time 中的每个元素
-	// cout << "OnRspSubMarketData -----data_time: ";
-	// for (auto& time : ticker->data_time) {
-	// 	cout << time << " ";
-	// }
-	// cout << endl;
-    cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
+	// 输出 data_time 中的每个元素
+	cout << "OnRspSubMarketData -----data_time: ";
+	for (auto& time : ticker->data_time) {
+		cout << time << " ";
+	}
+	cout << endl;
+    //cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
 
 	// if (error_info && error_info->error_id == 0){
 	// 	订阅成功
 	// 	if (is_last){
 	// 		cout << "OnRspSubMarketData is_last=" << is_last << endl;
 	// 	}
-	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
+	//cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
 	//cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price[0] << endl;
 	//cout << "OnRspSubMarketData -----data_time=" << ticker->data_time[0] << endl;
 	// }
