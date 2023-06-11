@@ -72,18 +72,6 @@ xtp_api_struct.h
 algo_api_struct.h
 ../api/algo_api_struct.h
 
-/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/src/quote_spi.cpp
-quote_spi.h
-/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/src/quote_spi.h
-iostream
--
-stdio.h
--
-string
--
-iterator
--
-
 /trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/src/quote_spi.h
 xtp_quote_api.h
 /trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/src/xtp_quote_api.h
