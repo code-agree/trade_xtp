@@ -40,18 +40,18 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 	// 输出 last_price 中的每个元素
 	cout << "OnRspSubMarketData -----last_price: " << endl;
 	cout << "OnRspSubMarketData -----last_price: " << ticker->last_price << endl;
-	cout << "OnRspSubMarketData -----last_price: ";
-	for (auto price : ticker->last_price) {
-		cout << price << " ";
-	}
-	cout << endl;
+	cout << "OnRspSubMarketData -----last_price: " << endl;
+	// for (auto price : ticker->last_price) {
+	// 	cout << price << " ";
+	// }
+	// cout << endl;
 
 	// 输出 data_time 中的每个元素
-	cout << "OnRspSubMarketData -----data_time: ";
-	for (auto& time : ticker->data_time) {
-		cout << time << " ";
-	}
-	cout << endl;
+	// cout << "OnRspSubMarketData -----data_time: ";
+	// for (auto& time : ticker->data_time) {
+	// 	cout << time << " ";
+	// }
+	// cout << endl;
     //cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
 
 	// if (error_info && error_info->error_id == 0){
