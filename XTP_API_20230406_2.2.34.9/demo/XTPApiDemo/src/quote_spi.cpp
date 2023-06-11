@@ -22,7 +22,7 @@ void MyQuoteSpi::OnDisconnected(int reason)
 void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
  	cout << "OnRspSubMarketData -----" << endl;
-	cout << "OnRspSubMarketData -----" << <<endl;
+	cout << "OnRspSubMarketData -----" << ticker << endl;
 }
 
 void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
