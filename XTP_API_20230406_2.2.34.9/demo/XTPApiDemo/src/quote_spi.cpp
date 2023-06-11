@@ -23,8 +23,12 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
  	cout << "OnRspSubMarketData -----" << endl;
 	cout << "OnRspSubMarketData -----" << ticker << endl;
+	cout << "OnRspSubMarketData -----" << ticker->last_price << endl;
 	cout << "OnRspSubMarketData errinfo-----" << error_info << endl;
 	cout << "OnRspSubMarketData is_last-----" << is_last << endl;
+	if (is_last){
+		cout << "OnRspSubMarketData is_last=1-----" << is_last << endl;
+	}
 }
 
 void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
