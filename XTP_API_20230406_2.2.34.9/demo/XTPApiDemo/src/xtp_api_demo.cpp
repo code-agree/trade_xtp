@@ -14,7 +14,7 @@
 #include <unistd.h>
 #endif // _WIN32
 
-#include "FileUtils.h"
+//#include "FileUtils.h"
 #include "xtp_quote_api.h"
 #include "quote_spi.h"
 
@@ -24,7 +24,7 @@ std::string trade_server_ip;
 int trade_server_port;
 std::map<uint64_t,uint64_t> map_session;
 uint64_t* session_arrary = NULL;
-FileUtils* fileUtils = NULL;
+//FileUtils* fileUtils = NULL;
 XTPOrderInsertInfo* orderList = NULL;
 std::string quote_server_ip;
 int quote_server_port;
