@@ -13,8 +13,8 @@ link_directories(${PROJECT_SOURCE_DIR}/api)
 file(GLOB APP_HEAD *.h)
 file(GLOB APP_SRC *.cpp)
 set(XTP_BASE_LIBS 
-	  debug xtptraderapi debug xtpquoteapi
-	   optimized xtptraderapi optimized xtpquoteapi
+	debug xtpquoteapi
+	   optimized xtpquoteapi
 	)
 IF(WIN32)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
