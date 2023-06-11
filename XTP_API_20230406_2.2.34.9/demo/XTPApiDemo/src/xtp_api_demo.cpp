@@ -54,7 +54,7 @@ int main()
 	quote_protocol = XTP_PROTOCOL_TCP;
 	int32_t quote_buffer_size = 256;
 	// 订阅的股票
-	std::vector<std::string> instrument_vector = {"000977", "002230"};
+	std::vector<std::string> instrument_vector = { "000977", "002230", "300033", "300059", "600522", "601138", "601360", "688981" };
 
 	//读取心跳超时配置
 	int32_t heat_beat_interval = 15;
