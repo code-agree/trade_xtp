@@ -38,11 +38,11 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 		time_t t = time_int64 / 1000;
 		struct tm* timeinfo = localtime(&t);
 		if (timeinfo == nullptr){
-			cout << "获取时间戳失败！" << endl;
+			cout << "get timestamp failed!" << endl;
 		}
 		char buffer[80];
 		strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
-    	cout << "时间戳 " << time_int64 << " 对应的北京时间为：" << buffer << endl;	
+    	cout << "timestamp " << time_int64 << " beijing time:" << buffer << endl;	
 
 	}
 	else{
