@@ -51,16 +51,16 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 	// }
 	// cout << endl;
     cout << "OnSubMarketData -----" << "error_id = " << error_info->error_id << ", error_msg = " << error_info->error_msg << endl;
-	
+
 	// if (error_info && error_info->error_id == 0){
 	// 	¶©ÔÄ³É¹¦
 	// 	if (is_last){
 	// 		cout << "OnRspSubMarketData is_last=" << is_last << endl;
 	// 	}
-	// 	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
-	// 	cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
-	// 	cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
-	// 	cout << "OnRspSubMarketData -----data_time=" << ticker->data_time << endl;
+	cout << "OnRspSubMarketData ticker==" << ticker->ticker << endl;
+	cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
+	cout << "OnRspSubMarketData -----lat_price=" << ticker->last_price << endl;
+	cout << "OnRspSubMarketData -----data_time=" << ticker->data_time << endl;
 	// }
 	// else{
 	// 	cout << "¶©ÔÄÊ§°Ü£¬´íÎóÂë£º" << error_info->error_id << "\n";
