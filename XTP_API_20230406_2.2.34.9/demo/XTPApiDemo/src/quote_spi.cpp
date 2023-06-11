@@ -34,7 +34,7 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 		
 		
 		cout << "OnRspSubMarketData -----data_time" << ticker->data_time << endl;
-    	int64_t time_int64 = ticker->data_time;
+    	uint64_t time_int64 = ticker->data_time;
 		time_t t = time_int64 / 1000;
 		struct tm* timeinfo = localtime(&t);
 		if (timeinfo == nullptr){
