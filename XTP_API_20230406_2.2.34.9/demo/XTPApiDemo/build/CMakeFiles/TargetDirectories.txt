@@ -1,0 +1,13 @@
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/install/strip.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/install/local.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/install.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/list_install_components.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/rebuild_cache.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/CMakeFiles/edit_cache.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/install/strip.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/install/local.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/install.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/list_install_components.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/rebuild_cache.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/edit_cache.dir
+/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/build/src/CMakeFiles/XTPApiDemo.dir

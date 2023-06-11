@@ -1,0 +1,75 @@
+[21:37:29.437.570][6772][INFO][XTP:0][init_log_file]:End: ./log/quote.log, api version : 2.2.34
+[21:37:29.438.028][6772][DEBUG][XTP:0]Begin to register quote service function.
+[21:37:29.438.092][6772][DEBUG][XTP:0]register service function ok(2250).
+[21:37:29.438.124][6772][DEBUG][XTP:0]register service function ok(2001).
+[21:37:29.438.146][6772][DEBUG][XTP:0]register service function ok(2002).
+[21:37:29.438.167][6772][DEBUG][XTP:0]register service function ok(2003).
+[21:37:29.438.187][6772][DEBUG][XTP:0]register service function ok(2200).
+[21:37:29.438.207][6772][DEBUG][XTP:0]register service function ok(2201).
+[21:37:29.438.226][6772][DEBUG][XTP:0]register service function ok(2202).
+[21:37:29.438.246][6772][DEBUG][XTP:0]register service function ok(2210).
+[21:37:29.438.265][6772][DEBUG][XTP:0]register service function ok(2211).
+[21:37:29.438.284][6772][DEBUG][XTP:0]register service function ok(2212).
+[21:37:29.438.304][6772][DEBUG][XTP:0]register service function ok(51).
+[21:37:29.438.323][6772][DEBUG][XTP:0]register service function ok(53).
+[21:37:29.438.342][6772][DEBUG][XTP:0]register service function ok(9).
+[21:37:29.438.362][6772][DEBUG][XTP:0]register service function ok(2005).
+[21:37:29.438.381][6772][DEBUG][XTP:0]register service function ok(2006).
+[21:37:29.438.400][6772][DEBUG][XTP:0]register service function ok(2205).
+[21:37:29.438.419][6772][DEBUG][XTP:0]register service function ok(2206).
+[21:37:29.438.438][6772][DEBUG][XTP:0]register service function ok(2215).
+[21:37:29.438.457][6772][DEBUG][XTP:0]register service function ok(2216).
+[21:37:29.438.476][6772][DEBUG][XTP:0]register service function ok(2012).
+[21:37:29.438.495][6772][DEBUG][XTP:0]register service function ok(2018).
+[21:37:29.438.514][6772][DEBUG][XTP:0]register service function ok(2220).
+[21:37:29.438.534][6772][DEBUG][XTP:0]register service function ok(2222).
+[21:37:29.438.553][6772][DEBUG][XTP:0]register service function ok(2224).
+[21:37:29.438.572][6772][DEBUG][XTP:0]register service function ok(2251).
+[21:37:29.438.610][6772][DEBUG][XTP:0]register service function ok(2253).
+[21:37:29.438.631][6772][DEBUG][XTP:0]register service function ok(2254).
+[21:37:29.438.650][6772][DEBUG][XTP:0]register service function ok(2230).
+[21:37:29.438.669][6772][DEBUG][XTP:0]register service function ok(2232).
+[21:37:29.438.690][6772][DEBUG][XTP:0]End to register quote service function 1.
+[21:37:30.003.323][6772][INFO][XTP:0]15015202 begin to login to quote server 119.3.103.38:6002.
+[21:37:30.205.747][6772][DEBUG][XTP:0]Receive login info from quote server.
+[21:37:30.206.127][6772][INFO][XTP:0]Receive trading day 20230611 from quote server success.
+[21:37:30.206.944][6772][INFO][XTP:0]Receive md udp group 230.1.7.45 : 7771 from quote server success.
+[21:37:30.207.196][6772][INFO][XTP:0]Receive tbt udp group 230.1.7.45 : 7771 from quote server success.
+[21:37:30.207.259][6772][INFO][XTP:0]Receive ob udp group 230.1.7.45 : 7771 from quote server success.
+[21:37:30.207.299][6772][INFO][XTP:0]Receive optmd udp group 230.1.7.45 : 7771 from quote server success.
+[21:37:30.210.973][6772][DEBUG][XTP:0]api_login_server successful: 426770432.
+[21:37:30.211.285][6776][INFO][XTP:0]thread(api work) start...
+[21:37:30.211.371][6772][INFO][XTP:0]Connect to quote server 119.3.103.38:6002 success.
+[21:37:30.213.735][6772][INFO][XTP:0]Begin to subscribe market data with tcp.
+[21:37:30.214.055][6772][INFO][XTP:0]End to subscribe market data with tcp.
+[21:37:30.228.010][6776][DEBUG][XTP:0]service(9) call time 65
+[21:37:30.233.013][6776][DEBUG][XTP:0]Receive subscribe market data.
+[21:37:30.234.167][6776][DEBUG][XTP:0]Receive subscribe market data success.
+[21:37:30.234.262][6776][DEBUG][XTP:0]service(2001) call time 1319
+[21:37:30.234.360][6776][DEBUG][XTP:0]Receive last market data.
+[21:37:30.237.290][6776][DEBUG][XTP:0]Receive last market data success.
+[21:37:30.237.353][6776][DEBUG][XTP:0]service(2018) call time 3039
+[21:37:35.799.568][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:35.801.765][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:35.801.976][6776][DEBUG][XTP:0]service(2003) call time 2720
+[21:37:35.860.798][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:35.861.524][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:35.861.575][6776][DEBUG][XTP:0]service(2003) call time 787
+[21:37:36.548.385][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:36.549.813][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:36.549.901][6776][DEBUG][XTP:0]service(2003) call time 1540
+[21:37:36.582.325][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:36.583.332][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:36.583.454][6776][DEBUG][XTP:0]service(2003) call time 1134
+[21:37:37.092.131][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:37.092.629][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:37.092.693][6776][DEBUG][XTP:0]service(2003) call time 568
+[21:37:37.125.350][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:37.126.053][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:37.126.123][6776][DEBUG][XTP:0]service(2003) call time 785
+[21:37:40.070.394][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:40.071.109][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:40.071.158][6776][DEBUG][XTP:0]service(2003) call time 771
+[21:37:40.128.928][6776][DEBUG][XTP:0]Receive depth market data.
+[21:37:40.130.472][6776][DEBUG][XTP:0]Receive depth market data success.
+[21:37:40.130.658][6776][DEBUG][XTP:0]service(2003) call time 1740

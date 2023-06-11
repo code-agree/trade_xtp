@@ -1,0 +1,1 @@
+/usr/bin/gcc    -rdynamic CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o  -o ../bin/XTPApiDemo   -L/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/api  -Wl,-rpath,/trade_xtp/XTP_API_20230406_2.2.34.9/demo/XTPApiDemo/api -lxtpquoteapi -lstdc++ 
