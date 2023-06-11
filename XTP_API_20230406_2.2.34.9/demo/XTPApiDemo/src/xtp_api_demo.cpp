@@ -111,7 +111,7 @@ int main()
 		std::cout << "login success!" << std::endl;
 		//登录行情服务器成功后，订阅行情
 		//int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
-		std::vector<std::string> instrument_vector = {"000977", "002230", "300033"};
+		std::vector<std::string> instrument_vector = {"000977", "002230"};
 		int instrument_count = instrument_vector.size();
 		std::cout << "instrument_count.size()=" << instrument_count << std::endl;
 		//int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
