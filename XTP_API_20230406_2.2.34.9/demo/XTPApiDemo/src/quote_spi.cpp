@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <iterator>
 using namespace std;
 
 MyQuoteSpi::MyQuoteSpi()
@@ -32,7 +33,7 @@ void MyQuoteSpi::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 
         // 输出 last_price 中的每个元素
         cout << "OnRspSubMarketData -----last_price: ";
-        for (auto price : ticker->last_price) {
+        for (auto& price : ticker->last_price) {
             cout << price << " ";
         }
         cout << endl;
